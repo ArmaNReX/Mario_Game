@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import maro.MainMenu.MainMenu;
+import maro.display.Display;
 import maro.game.Game;
 import maro.states.GameState;
 import maro.states.State;
@@ -39,19 +41,16 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
-		System.out.println("clicked");
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		
-		System.out.println("clicked");
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		
-		System.out.println("clicked");
 	}
 
 	@Override
@@ -60,17 +59,28 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 		if (e.getButton() == MouseEvent.BUTTON1) {//BUTTON1 is left mouse button
 			leftPressed = true;
 		}
-		else if (e.getButton() == MouseEvent.BUTTON3) {
+		else if (e.getButton() == MouseEvent.BUTTON3) {//BUTTON3 is right mouse button
 			rightPressed = true;
 		}
 
-		if (mouseX > 0 && mouseX < 500) {
-			if (mouseY > 0 && mouseY < 500) {
-				System.out.println("FUCK");
+		//Conditions for Play button
+		if (mouseX > MainMenu.playX && mouseX < MainMenu.playX + MainMenu.buttonWidth) {
+			if (mouseY > MainMenu.playY && mouseY < MainMenu.playY + MainMenu.buttonHeight) {
+				State.setState(Game.gameState); //opens the game frame
 			}
 		}
-		System.out.println("clicked");
-		
+		//Conditions for Help button
+		if (mouseX > MainMenu.helpX && mouseX < MainMenu.helpX + MainMenu.buttonWidth) {
+			if (mouseY > MainMenu.helpY && mouseY < MainMenu.helpY + MainMenu.buttonHeight) {
+				
+			}
+		}
+		//Conditions for Quit button
+		if (mouseX > MainMenu.quitX && mouseX < MainMenu.quitX + MainMenu.buttonWidth) {
+			if (mouseY > MainMenu.quitY && mouseY < MainMenu.quitY + MainMenu.buttonHeight) {
+				Display.frame.dispose();
+			}
+		}
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class Display {
 	
-	private JFrame frame;
+	public static JFrame frame;
 	private Canvas canvas; 
 	
 	private String title; //game window title

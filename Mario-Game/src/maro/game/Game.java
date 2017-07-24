@@ -33,8 +33,8 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	//States
-	private State gameState;
-	private State menuState;
+	public static State gameState;
+	public State menuState;
 	private State settingsState;
 	
 	//input
@@ -71,6 +71,8 @@ public class Game implements Runnable {
 		
 		State.setState(menuState);
 //		State.setState(gameState);
+		
+		
 	}
 	
 	
