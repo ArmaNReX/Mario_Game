@@ -17,6 +17,8 @@ import maro.states.MenuState;
 import maro.states.SettingsState;
 import maro.states.State;
 
+//kabab is the best 
+
 public class Game implements Runnable {
 	
 	private Display display;
