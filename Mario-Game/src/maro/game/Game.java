@@ -6,21 +6,18 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-import maro.MainMenu.MenuMouseInput;
 import maro.display.Display;
 import maro.gfx.Assets;
 import maro.gfx.GameCamera;
 import maro.gfx.ImageLoader;
 import maro.gfx.SpriteSheet;
 import maro.input.KeyManager;
+import maro.input.MouseManager;
 import maro.states.GameState;
 import maro.states.MenuState;
 import maro.states.SettingsState;
 import maro.states.State;
 
-//kabab is the best 
-//kabab is not best
-//kabab is bad 
 
 public class Game implements Runnable {
 	
@@ -42,26 +39,28 @@ public class Game implements Runnable {
 	
 	//input
 	private KeyManager keyManager;
-	private MenuMouseInput mouseListener;
+	private MouseManager mouseManager;
 	
 	//Camera
 	private GameCamera gameCamera;
 	
-	//Handler
-//	public static Handler handler;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
-		mouseListener = new MenuMouseInput();
+		mouseManager = new MouseManager();
 	}
 	
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); //allows us to access the keyboard
-		display.getFrame().addMouseListener(mouseListener);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		//need to add mouseManager to canvas as well, or it wont work. this is because the Canvas might be the focused object instead of jframe.
+		display.getCanvas().addMouseListener(mouseManager); 
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init(); //loads in all resources (sprites,musics, ...)
 		
 		gameCamera = new GameCamera(this, 0, 0);
@@ -70,13 +69,13 @@ public class Game implements Runnable {
 		menuState = new MenuState(this); //initialize our main menu state
 		settingsState = new SettingsState(this); //initialize our settings menu state
 		
-//		State.setState(menuState);
-		State.setState(gameState);
+		State.setState(menuState);
+//		State.setState(gameState);
 	}
 	
 	
 	private void tick(){
-//		keyManager.tick();
+		keyManager.tick();
 		if (State.getState() != null) { //checks if a game state is available
 			State.getState().tick();
 		}
@@ -143,6 +142,10 @@ public class Game implements Runnable {
 	
 	public KeyManager getKeyManager() {
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager() {
+		return mouseManager;
 	}
 	
 	public GameCamera getGameCamera() {

@@ -13,7 +13,7 @@ import maro.gfx.Assets;
 public class MainMenu {
 	
 	//button coordinates and size fields
-	public static int playX=100;
+	public static int playX=550;
 	public static int playY=200;
 	public static int helpX=550;
 	public static int helpY=350;
