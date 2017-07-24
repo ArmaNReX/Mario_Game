@@ -6,6 +6,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import maro.Handler;
+import maro.MainMenu.MenuMouseInput;
 import maro.display.Display;
 import maro.gfx.Assets;
 import maro.gfx.GameCamera;
@@ -46,7 +47,7 @@ public class Game implements Runnable {
 	private GameCamera gameCamera;
 	
 	//Handler
-	private Handler handler;
+	public static Handler handler;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -58,6 +59,7 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); //allows us to access the keyboard
+		display.getFrame().addMouseListener(new MenuMouseInput());
 		Assets.init(); //loads in all resources (sprites,musics, ...)
 		
 		gameCamera = new GameCamera(this, 0, 0);
@@ -110,7 +112,7 @@ public class Game implements Runnable {
 		
 		int fps = 60; //defines the FramePerSecond for our game. IMPORTANT.
 		double timePerTick = 1000000000 / fps; //is the maximum amount of time we're allowed to run tick() and render() in one second(one billion nanosec).
-		double delta = 0; //amount og time we have left till we run tick() and render() method again.
+		double delta = 0; //amount of time we have left till we run tick() and render() method again.
 		long now;
 		long lastTime = System.nanoTime();
 		long timer = 0;
