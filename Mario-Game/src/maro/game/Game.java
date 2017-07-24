@@ -18,6 +18,8 @@ import maro.states.SettingsState;
 import maro.states.State;
 
 //kabab is the best 
+//kabab is not best
+//kabab is bad 
 
 public class Game implements Runnable {
 	
