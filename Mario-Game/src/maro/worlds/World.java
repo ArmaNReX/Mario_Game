@@ -2,21 +2,20 @@ package maro.worlds;
 
 import java.awt.Graphics;
 
-import maro.Handler;
 import maro.game.Game;
 import maro.tiles.Tile;
 import maro.utils.Utils;
 
 public class World {
 	
-	private Handler handler;
+	private Game game;
 	private int width, height;
 	private int spawnX, spawnY;
 	private int[][] tiles; //2D array
 	
-	public World(Handler handler, String path) {
+	public World(Game game, String path) {
 		loadWorld(path);
-		this.handler = handler;
+		this.game = game;
 	}
 	
 	private void loadWorld(String path) {
@@ -44,16 +43,16 @@ public class World {
 		
 		//this method is redefined for efficiency purposes. We want the program to only render parts of the world 
 		//which are visible on the player's screen.
-		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILE_WIDTH);
-		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILE_WIDTH + 1);
-		int yStart = (int) Math.max(0, handler.getGameCamera().getyOffset() / Tile.TILE_HEIGHT);
-		int yEnd = (int) Math.min(height, (handler.getGameCamera().getyOffset() + handler.getHeight()) / Tile.TILE_HEIGHT + 1);
+		int xStart = (int) Math.max(0, game.getGameCamera().getxOffset() / Tile.TILE_WIDTH);
+		int xEnd = (int) Math.min(width, (game.getGameCamera().getxOffset() + game.getWidth()) / Tile.TILE_WIDTH + 1);
+		int yStart = (int) Math.max(0, game.getGameCamera().getyOffset() / Tile.TILE_HEIGHT);
+		int yEnd = (int) Math.min(height, (game.getGameCamera().getyOffset() + game.getHeight()) / Tile.TILE_HEIGHT + 1);
 		
 		
 		
 		for (int y=yStart; y<yEnd; y++) {
 			for (int x=xStart; x<xEnd; x++) {
-				getTile(x, y).render(g, (int)(x * Tile.TILE_WIDTH - handler.getGameCamera().getxOffset()), (int)(y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
+				getTile(x, y).render(g, (int)(x * Tile.TILE_WIDTH - game.getGameCamera().getxOffset()), (int)(y * Tile.TILE_HEIGHT - game.getGameCamera().getyOffset()));
 			}
 		}
 		

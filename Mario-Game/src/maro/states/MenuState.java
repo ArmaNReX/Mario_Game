@@ -2,7 +2,7 @@ package maro.states;
 
 import java.awt.Graphics;
 
-import maro.Handler;
+
 import maro.MainMenu.MainMenu;
 import maro.entities.creatures.Player;
 import maro.game.Game;
@@ -12,9 +12,9 @@ public class MenuState extends State { //writing "extends State" allows us to wr
 
 	private MainMenu mainMenu;
 	
-	public MenuState(Handler handler) {
-		super(handler); //calls the constructor of the class which extends this one, aka "State" class
-		mainMenu = new MainMenu(handler, 100, 100);
+	public MenuState(Game game) {
+		super(game); //calls the constructor of the class which extends this one, aka "State" class
+		mainMenu = new MainMenu(game, 100, 100);
 	}
 
 	@Override

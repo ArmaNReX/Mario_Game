@@ -2,10 +2,10 @@ package maro.game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-import maro.Handler;
 import maro.MainMenu.MenuMouseInput;
 import maro.display.Display;
 import maro.gfx.Assets;
@@ -42,40 +42,41 @@ public class Game implements Runnable {
 	
 	//input
 	private KeyManager keyManager;
+	private MenuMouseInput mouseListener;
 	
 	//Camera
 	private GameCamera gameCamera;
 	
 	//Handler
-	public static Handler handler;
+//	public static Handler handler;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseListener = new MenuMouseInput();
 	}
 	
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); //allows us to access the keyboard
-		display.getFrame().addMouseListener(new MenuMouseInput());
+		display.getFrame().addMouseListener(mouseListener);
 		Assets.init(); //loads in all resources (sprites,musics, ...)
 		
 		gameCamera = new GameCamera(this, 0, 0);
-		handler = new Handler(this);
 		
-		gameState = new GameState(handler); //initialize our game state
-		menuState = new MenuState(handler); //initialize our main menu state
-		settingsState = new SettingsState(handler); //initialize our settings menu state
+		gameState = new GameState(this); //initialize our game state
+		menuState = new MenuState(this); //initialize our main menu state
+		settingsState = new SettingsState(this); //initialize our settings menu state
 		
-		State.setState(menuState);
-//		State.setState(gameState);
+//		State.setState(menuState);
+		State.setState(gameState);
 	}
 	
 	
 	private void tick(){
-		keyManager.tick();
+//		keyManager.tick();
 		if (State.getState() != null) { //checks if a game state is available
 			State.getState().tick();
 		}

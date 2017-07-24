@@ -1,6 +1,5 @@
 package maro.entities.creatures;
 
-import maro.Handler;
 import maro.entities.Entity;
 import maro.game.Game;
 
@@ -15,8 +14,8 @@ public abstract class Creature extends Entity {
 	protected float speed;
 	protected float xMove, yMove;
 
-	public Creature(Handler handler, float x, float y, int width, int height) {
-		super(handler, x, y, width, height); //this will connect to the constructor in class "Entity"
+	public Creature(Game game, float x, float y, int width, int height) {
+		super(game, x, y, width, height); //this will connect to the constructor in class "Entity"
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;

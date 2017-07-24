@@ -2,17 +2,16 @@ package maro.entities;
 
 import java.awt.Graphics;
 
-import maro.Handler;
 import maro.game.Game;
 
 public abstract class Entity {
 	
-	protected Handler handler;
+	protected Game game;
 	protected float x, y; //we choose protected so classes that extend this class will have access to these variable
 	protected int width, height;
 	
-	public Entity(Handler handler, float x, float y, int width, int height) {
-		this.handler = handler;
+	public Entity(Game game, float x, float y, int width, int height) {
+		this.game = game;
 		this.x = x;
 		this.y = y;
 		this.width = width;

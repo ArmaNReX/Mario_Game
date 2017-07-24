@@ -2,7 +2,6 @@ package maro.entities.creatures;
 
 import java.awt.Graphics;
 
-import maro.Handler;
 import maro.game.Game;
 import maro.gfx.Assets;
 
@@ -10,8 +9,8 @@ public class Player extends Creature {
 	
 	public static int speed = 5;
 
-	public Player(Handler handler, float x, float y) {
-		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+	public Player(Game game, float x, float y) {
+		super(game, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 	}
 
 	@Override
@@ -19,23 +18,23 @@ public class Player extends Creature {
 		
 		getInput();
 		move();
-		handler.getGameCamera().centerOnEntity(this);
+		game.getGameCamera().centerOnEntity(this);
 	}
 	
 	private void getInput() {
 		xMove = 0;
 		yMove = 0;
 		
-		if (handler.getKeyManager().up) {
+		if (game.getKeyManager().up) {
 			yMove = -speed;
 		}
-		if (handler.getKeyManager().down) {
+		if (game.getKeyManager().down) {
 			yMove = speed;
 		}
-		if (handler.getKeyManager().left) {
+		if (game.getKeyManager().left) {
 			xMove = -speed;
 		}
-		if (handler.getKeyManager().right) {
+		if (game.getKeyManager().right) {
 			xMove = speed;
 		}
 	}
@@ -45,7 +44,7 @@ public class Player extends Creature {
 		
 		//width and height variables come from the extended Entity class. 
 //		if(game.getKeyManager().up) {
-			g.drawImage(Assets.mario_up, (int)(x - handler.getGameCamera().getxOffset()), (int)(y - handler.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
+			g.drawImage(Assets.mario_up, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
 //		}
 //		if(game.getKeyManager().down) {
 //			g.drawImage(Assets.mario_down, (int)x, (int)y, width, height, null); //used "casting" to convert float to int

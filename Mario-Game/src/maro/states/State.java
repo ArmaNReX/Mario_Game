@@ -2,7 +2,6 @@ package maro.states;
 
 import java.awt.Graphics;
 
-import maro.Handler;
 import maro.game.Game;
 
 public abstract class State {
@@ -22,10 +21,10 @@ public abstract class State {
 	
 	
 	
-	protected Handler handler;
+	protected Game game;
 	
-	public State(Handler handler) {
-		this.handler = handler;
+	public State(Game game) {
+		this.game = game;
 	}
 	
 	public abstract void tick();
