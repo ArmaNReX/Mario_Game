@@ -11,6 +11,7 @@ public class World {
 	private Game game;
 	private int width, height;
 	private int spawnX, spawnY;
+	private boolean gameFinished = false;
 	private int[][] tiles; //2D array
 	
 	public World(Game game, String path) {
@@ -49,13 +50,16 @@ public class World {
 		int yEnd = (int) Math.min(height, (game.getGameCamera().getyOffset() + game.getHeight()) / Tile.TILE_HEIGHT + 1);
 		
 		
-		
 		for (int y=yStart; y<yEnd; y++) {
 			for (int x=xStart; x<xEnd; x++) {
 				getTile(x, y).render(g, (int)(x * Tile.TILE_WIDTH - game.getGameCamera().getxOffset()), (int)(y * Tile.TILE_HEIGHT - game.getGameCamera().getyOffset()));
 			}
 		}
 		
+	}
+	
+	public boolean finishedGame() { //passes true when the game is over and the user meets the score required to end the level
+		return false;
 	}
 	
 	public Tile getTile(int x, int y) {

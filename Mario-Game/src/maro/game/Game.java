@@ -13,7 +13,7 @@ import maro.gfx.ImageLoader;
 import maro.gfx.SpriteSheet;
 import maro.input.KeyManager;
 import maro.input.MouseManager;
-import maro.states.GameState;
+import maro.states.GameState1;
 import maro.states.MenuState;
 import maro.states.SettingsState;
 import maro.states.State;
@@ -56,8 +56,8 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); //allows us to access the keyboard
-		display.getFrame().addMouseListener(mouseManager);
-		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getFrame().addMouseListener(mouseManager);//allows us to access the mouse
+		display.getFrame().addMouseMotionListener(mouseManager);//allows us to access the mouse
 		//need to add mouseManager to canvas as well, or it wont work. this is because the Canvas might be the focused object instead of jframe.
 		display.getCanvas().addMouseListener(mouseManager); 
 		display.getCanvas().addMouseMotionListener(mouseManager);
@@ -65,7 +65,7 @@ public class Game implements Runnable {
 		
 		gameCamera = new GameCamera(this, 0, 0);
 		
-		gameState = new GameState(this); //initialize our game state
+		gameState = new GameState1(this); //initialize our game state
 		menuState = new MenuState(this); //initialize our main menu state
 		settingsState = new SettingsState(this); //initialize our settings menu state
 		
@@ -94,18 +94,14 @@ public class Game implements Runnable {
 		
 		g.clearRect(0, 0, width, height); //super important. without this line, game will flicker.
 		
-//		g.drawImage(Assets.background_pic, 0, 0, 1500, 1000, null);
+		g.drawImage(Assets.background_pic, 0, 0, 1500, 1000, null);
 		
 		if (State.getState() != null) { //checks if a game state is available
 			State.getState().render(g);
 		}
-		 
-		
-		
-		
+
 		bs.show(); //this line is required to do the buffering stuff.
 		g.dispose(); //this line makes sure graphics object gets done with properly.
-		
 	}
 	
 	//if class implements Runnable, this method is required to exist.

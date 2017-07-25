@@ -3,7 +3,7 @@ package maro.gfx;
 import maro.entities.Entity;
 import maro.game.Game;
 
-public class GameCamera {
+public class GameCamera { //used to keep track (stick) the camera position on the player character in game
 
 	private Game game;
 	private float xOffset, yOffset;

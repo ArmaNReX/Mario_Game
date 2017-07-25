@@ -7,7 +7,7 @@ import maro.gfx.Assets;
 
 public class Player extends Creature {
 	
-	public static int speed = 5;
+	public static int speed = 3;
 
 	public Player(Game game, float x, float y) {
 		super(game, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -60,7 +60,4 @@ public class Player extends Creature {
 		}
 		
 	}
-	
-	
-
 }

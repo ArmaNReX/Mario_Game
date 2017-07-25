@@ -9,7 +9,7 @@ public class KeyManager implements KeyListener {
 	public boolean up, down, left, right;
 	
 	public KeyManager() {
-		keys = new boolean[256];
+		keys = new boolean[256]; //makes an array
 	}
 	
 	public void tick() {
@@ -29,7 +29,6 @@ public class KeyManager implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		
 		keys[e.getKeyCode()] = false;
-		
 	}
 
 	@Override

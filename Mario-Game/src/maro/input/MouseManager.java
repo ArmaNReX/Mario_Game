@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 import maro.MainMenu.MainMenu;
 import maro.display.Display;
 import maro.game.Game;
-import maro.states.GameState;
+import maro.states.GameState1;
 import maro.states.State;
 
 public class MouseManager implements MouseListener, MouseMotionListener {

@@ -15,7 +15,7 @@ public class Tile {
 	
 	
 	
-	public static final int TILE_WIDTH = 200;
+	public static final int TILE_WIDTH = 100;
 	public static final int TILE_HEIGHT = 100;
 	
 	protected BufferedImage texture;

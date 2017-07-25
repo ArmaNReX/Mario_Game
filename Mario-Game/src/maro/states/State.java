@@ -4,10 +4,10 @@ import java.awt.Graphics;
 
 import maro.game.Game;
 
-public abstract class State {
+public abstract class State { //State is the current window on screen shown to the user
 	
 	
-	private static State currentState = null;
+	private static State currentState = null; //the current screen being shown (initially set as null)
 	
 	//setter
 	public static void setState(State state){
