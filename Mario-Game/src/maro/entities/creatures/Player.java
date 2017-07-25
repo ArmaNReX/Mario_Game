@@ -43,21 +43,21 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		
 		//width and height variables come from the extended Entity class. 
-//		if(game.getKeyManager().up) {
+		if(game.getKeyManager().up) {
 			g.drawImage(Assets.mario_up, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
-//		}
-//		if(game.getKeyManager().down) {
-//			g.drawImage(Assets.mario_down, (int)x, (int)y, width, height, null); //used "casting" to convert float to int
-//		}
-//		if(game.getKeyManager().left) {
-//			g.drawImage(Assets.mario_left, (int)x, (int)y, width, height, null); //used "casting" to convert float to int
-//		}
-//		if(game.getKeyManager().right) {
-//			g.drawImage(Assets.mario_right, (int)x, (int)y, width, height, null); //used "casting" to convert float to int
-//		}
-//		if(game.getKeyManager().right == false && game.getKeyManager().left == false && game.getKeyManager().up == false && game.getKeyManager().down == false) {
-//			g.drawImage(Assets.mario_down, (int)x, (int)y, width, height, null); //used "casting" to convert float to int
-//		}
+		}
+		if(game.getKeyManager().down) {
+			g.drawImage(Assets.mario_down, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
+		}
+		if(game.getKeyManager().left) {
+			g.drawImage(Assets.mario_left, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
+		}
+		if(game.getKeyManager().right) {
+			g.drawImage(Assets.mario_right, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
+		}
+		if(game.getKeyManager().right == false && game.getKeyManager().left == false && game.getKeyManager().up == false && game.getKeyManager().down == false) {
+			g.drawImage(Assets.mario_down, (int)(x - game.getGameCamera().getxOffset()), (int)(y - game.getGameCamera().getyOffset()), width, height, null); //used "casting" to convert float to int
+		}
 		
 	}
 	
