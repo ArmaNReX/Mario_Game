@@ -134,7 +134,7 @@ public class Game implements Runnable {
 			delta--; //subtracts delta by 1.
 			}
 			if (timer >=  1000000000) { 
-				System.out.println("Ticks and Frames: " + ticks); //prints the fps once every second.
+//				System.out.println("Ticks and Frames: " + ticks); //prints the fps once every second.
 				ticks = 0;
 				timer = 0;
 			}

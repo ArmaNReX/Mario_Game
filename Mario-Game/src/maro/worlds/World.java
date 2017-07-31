@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import maro.Handler;
 import maro.entities.EntityManager;
 import maro.entities.creatures.Player;
+import maro.entities.statics.Princess;
 import maro.game.Game;
 import maro.tiles.Tile;
 import maro.utils.Utils;
@@ -29,6 +30,10 @@ public class World {
 		this.handler = handler;
 	}
 	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
 	private void loadWorld(String path) {
 		
 		String file = Utils.loadFileAsString(path);
@@ -65,6 +70,7 @@ public class World {
 				getTile(x, y).render(g, (int)(x * Tile.TILE_WIDTH - handler.getGameCamera().getxOffset()), (int)(y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
 			}
 		}
+		entityManager.render(g);
 		
 	}
 	

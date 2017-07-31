@@ -2,7 +2,10 @@ package maro.entities.creatures;
 
 import maro.Handler;
 import maro.entities.Entity;
+import maro.entities.EntityManager;
+import maro.entities.statics.Princess;
 import maro.game.Game;
+import maro.states.GameState1;
 import maro.tiles.Tile;
 
 public abstract class Creature extends Entity {
@@ -15,6 +18,13 @@ public abstract class Creature extends Entity {
 	protected int health;
 	protected float speed;
 	protected float xMove, yMove;
+	
+	public static boolean Princess1 = true;
+	public static boolean Princess2 = true;
+	public static boolean Princess3 = true;
+	public static boolean Princess4 = true;
+	public static boolean Princess5 = true;
+	public static boolean Princess6 = true;
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height); //this will connect to the constructor in class "Entity"
@@ -25,8 +35,47 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void move() {
-		moveX();
-		moveY();
+		
+		if (Princess1) {
+			if (Player.marioXpos > Princess.p1x && Player.marioXpos < Princess.p1x+Princess.princessWidth && Player.marioYpos > Princess.p1y && Player.marioYpos < Princess.p1y+Princess.princessHeight) {
+				Princess1 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess2) {
+			if (Player.marioXpos > Princess.p2x && Player.marioXpos < Princess.p2x+Princess.princessWidth && Player.marioYpos > Princess.p2y && Player.marioYpos < Princess.p2y+Princess.princessHeight) {
+				Princess2 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess3) {
+			if (Player.marioXpos > Princess.p3x && Player.marioXpos < Princess.p3x+Princess.princessWidth && Player.marioYpos > Princess.p3y && Player.marioYpos < Princess.p3y+Princess.princessHeight) {
+				Princess3 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess4) {
+			if (Player.marioXpos > Princess.p4x && Player.marioXpos < Princess.p4x+Princess.princessWidth && Player.marioYpos > Princess.p4y && Player.marioYpos < Princess.p4y+Princess.princessHeight) {
+				Princess4 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess5) {
+			if (Player.marioXpos > Princess.p5x && Player.marioXpos < Princess.p5x+Princess.princessWidth && Player.marioYpos > Princess.p5y && Player.marioYpos < Princess.p5y+Princess.princessHeight) {
+				Princess5 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess6) {
+			if (Player.marioXpos > Princess.p6x && Player.marioXpos < Princess.p6x+Princess.princessWidth && Player.marioYpos > Princess.p6y && Player.marioYpos < Princess.p6y+Princess.princessHeight) {
+				Princess6 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		
+		
+			moveX();
+			moveY();
 	}
 	
 	public void moveX() {

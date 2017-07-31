@@ -1,6 +1,7 @@
 package maro.states;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -20,6 +21,8 @@ public class GameState1 extends State { //writing "extends State" allows us to w
 	private World world;
 	private int score;
 	private int level = 1;
+	public static int HealthVal = 0;
+	public static int ScoreVal = 0;
 	
 	public Rectangle header = new Rectangle(0, 0, Launcher.gameWidth, 100);
 	
@@ -40,10 +43,17 @@ public class GameState1 extends State { //writing "extends State" allows us to w
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
+		world.render(g);
+		
 		g.setColor(Color.WHITE);
 		g2d.draw(header);
-		
-		world.render(g);
+		Font myFont1 = new Font("arial", java.awt.Font.BOLD, 25);
+		g.setColor(Color.BLACK);
+		g.setFont(myFont1);
+		g.drawString("Score: ", Launcher.gameWidth - 300, 55); //Score String
+		g.drawString(ScoreVal+"/6", Launcher.gameWidth - 200, 55); //Score Value String
+		g.drawString("Health: ", 200, 55); //Health String
+		g.drawString(HealthVal+"", 300, 55); //Health Value String
 	}
 
 	
