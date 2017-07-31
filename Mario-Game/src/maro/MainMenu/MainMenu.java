@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import maro.Handler;
 import maro.game.Game;
 import maro.game.Launcher;
 import maro.gfx.Assets;
@@ -26,7 +27,7 @@ public class MainMenu {
 	public Rectangle helpButton = new Rectangle(helpX, helpY, buttonWidth, buttonHeight);
 	public Rectangle quitButton = new Rectangle(quitX, quitY, buttonWidth, buttonHeight);
 
-	public MainMenu(Game game, int width, int height) {
+	public MainMenu(Handler handler, int width, int height) {
 		
 	}
 

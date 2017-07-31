@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import maro.Handler;
 import maro.display.Display;
 import maro.gfx.Assets;
 import maro.gfx.GameCamera;
@@ -44,6 +45,8 @@ public class Game implements Runnable {
 	//Camera
 	private GameCamera gameCamera;
 	
+	private Handler handler;
+	
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -64,10 +67,11 @@ public class Game implements Runnable {
 		Assets.init(); //loads in all resources (sprites,musics, ...)
 		
 		gameCamera = new GameCamera(this, 0, 0);
+		handler = new Handler(this);
 		
-		gameState = new GameState1(this); //initialize our game state
-		menuState = new MenuState(this); //initialize our main menu state
-		settingsState = new SettingsState(this); //initialize our settings menu state
+		gameState = new GameState1(handler); //initialize our game state
+		menuState = new MenuState(handler); //initialize our main menu state
+		settingsState = new SettingsState(handler); //initialize our settings menu state
 		
 		State.setState(menuState);
 //		State.setState(gameState);

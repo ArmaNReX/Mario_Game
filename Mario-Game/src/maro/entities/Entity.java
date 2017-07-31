@@ -1,21 +1,26 @@
 package maro.entities;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
+import maro.Handler;
 import maro.game.Game;
 
 public abstract class Entity {
 	
-	protected Game game;
+	protected Handler handler;
 	protected float x, y; //we choose protected so classes that extend this class will have access to these variable
 	protected int width, height;
+	protected Rectangle bounds;
 	
-	public Entity(Game game, float x, float y, int width, int height) {
-		this.game = game;
+	public Entity(Handler handler, float x, float y, int width, int height) {
+		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		
+		bounds = new Rectangle(0, 0, width, height);
 	}
 	
 	public float getX() {

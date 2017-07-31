@@ -1,7 +1,9 @@
 package maro.entities.creatures;
 
+import maro.Handler;
 import maro.entities.Entity;
 import maro.game.Game;
+import maro.tiles.Tile;
 
 public abstract class Creature extends Entity {
 	
@@ -14,8 +16,8 @@ public abstract class Creature extends Entity {
 	protected float speed;
 	protected float xMove, yMove;
 
-	public Creature(Game game, float x, float y, int width, int height) {
-		super(game, x, y, width, height); //this will connect to the constructor in class "Entity"
+	public Creature(Handler handler, float x, float y, int width, int height) {
+		super(handler, x, y, width, height); //this will connect to the constructor in class "Entity"
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
@@ -23,10 +25,48 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void move() {
-		x += xMove;
-		y += yMove;
+		moveX();
+		moveY();
 	}
 	
+	public void moveX() {
+		
+		if (xMove > 0) { //moving right
+			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILE_WIDTH;
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT) && !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILE_HEIGHT)) { //checks if no solid tile is present
+				x += xMove;
+			}
+		}
+		else if(xMove < 0) { //moving left
+			int tx = (int) (x + xMove + bounds.x) / Tile.TILE_WIDTH;
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILE_HEIGHT) && !collisionWithTile(tx, (int) (y + bounds.y + bounds.height) / Tile.TILE_HEIGHT)) { //checks if no solid tile is present
+				x += xMove;
+			}
+		}
+	}
+	
+	public void moveY() {
+		if (yMove < 0) { //moving up
+			
+			int ty = (int)(y + yMove + bounds.y) / Tile.TILE_HEIGHT;
+			
+			if (!collisionWithTile((int)(x + bounds.x) / Tile.TILE_WIDTH, ty) && !collisionWithTile((int)(x + bounds.x + bounds.width) / Tile.TILE_WIDTH, ty)) {
+				y += yMove;
+			}
+			
+		}
+		else if (yMove > 0) { //moving down
+			int ty = (int)(y + yMove + bounds.y + bounds.height) / Tile.TILE_HEIGHT;
+			
+			if (!collisionWithTile((int)(x + bounds.x) / Tile.TILE_WIDTH, ty) && !collisionWithTile((int)(x + bounds.x + bounds.width) / Tile.TILE_WIDTH, ty)) {
+				y += yMove;
+			}
+		}
+	}
+	
+	protected boolean collisionWithTile(int x, int y) {
+		return handler.getWorld().getTile(x, y).isSolid();
+	}
 	
 	
 	//getters and setters begin here

@@ -6,7 +6,7 @@ public class Assets {
 	
 	private static final int width = 40, height = 40;
 	
-	public static BufferedImage mario_right, mario_down, mario_left, mario_up, tile_mid, tile_left, tile_right, background_pic, stardew_sewer, stardew_grass,stardew_dirt, turtle1, fireball;
+	public static BufferedImage mario_right, mario_down, mario_left, mario_up, tile_mid, tile_left, tile_right, background_pic, stardew_sewer, stardew_grass,stardew_dirt, turtle1, fireball, princess;
 	
 	
 	//this method is what loads in everything for our game. everything including sounds and pictures and musics.
@@ -19,8 +19,10 @@ public class Assets {
 		SpriteSheet stardewSheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/stardew-sheet2.png"));
 		SpriteSheet turtleSheet = new SpriteSheet(ImageLoader.loadImage("/textures/turtle1.gif"));
 		SpriteSheet cannonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/fireball.gif"));
+		SpriteSheet princessSheet = new SpriteSheet(ImageLoader.loadImage("/textures/princess-sheet.png"));
 		
 		
+		princess = princessSheet.crop(0, 0, 202, 250);
 		fireball = cannonSheet.crop(0, 0, 22, 22);
 		turtle1 = turtleSheet.crop(0, 65, 20, 35);
 		stardew_sewer = stardewSheet1.crop(0, 214, 160, 107);

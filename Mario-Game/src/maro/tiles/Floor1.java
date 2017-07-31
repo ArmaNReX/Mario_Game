@@ -10,4 +10,8 @@ public class Floor1 extends Tile {
 		super(Assets.stardew_sewer, id);
 	}
 	
+	
+	public boolean isSolid(){
+		return false;
+	}
 }

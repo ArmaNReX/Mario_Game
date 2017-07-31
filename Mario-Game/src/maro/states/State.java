@@ -2,6 +2,7 @@ package maro.states;
 
 import java.awt.Graphics;
 
+import maro.Handler;
 import maro.game.Game;
 
 public abstract class State { //State is the current window on screen shown to the user
@@ -21,10 +22,10 @@ public abstract class State { //State is the current window on screen shown to t
 	
 	
 	
-	protected Game game;
+	protected Handler handler;
 	
-	public State(Game game) {
-		this.game = game;
+	public State(Handler handler) {
+		this.handler = handler;
 	}
 	
 	public abstract void tick();

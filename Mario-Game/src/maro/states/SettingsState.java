@@ -2,12 +2,13 @@ package maro.states;
 
 import java.awt.Graphics;
 
+import maro.Handler;
 import maro.game.Game;
 
 public class SettingsState extends State {
 	
-	public SettingsState(Game game) {
-		super(game); //calls the constructor of the class which extends this one, aka "State" class
+	public SettingsState(Handler handler) {
+		super(handler); //calls the constructor of the class which extends this one, aka "State" class
 	}
 
 	@Override
