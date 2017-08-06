@@ -10,7 +10,7 @@ import maro.gfx.Assets;
 
 public class Player extends Creature {
 	
-	public static int speed = 3;
+	public static int speed = 10;
 	public static float marioXpos;
 	public static float marioYpos;
 

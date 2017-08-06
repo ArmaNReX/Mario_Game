@@ -25,6 +25,10 @@ public abstract class Creature extends Entity {
 	public static boolean Princess4 = true;
 	public static boolean Princess5 = true;
 	public static boolean Princess6 = true;
+	public static boolean Princess7 = true;
+	public static boolean Princess8 = true;
+	public static boolean Princess9 = true;
+	public static boolean Princess10 = true;
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height); //this will connect to the constructor in class "Entity"
@@ -36,6 +40,7 @@ public abstract class Creature extends Entity {
 	
 	public void move() {
 		
+		//checks if the player comes into contact with any of the princess objects
 		if (Princess1) {
 			if (Player.marioXpos > Princess.p1x && Player.marioXpos < Princess.p1x+Princess.princessWidth && Player.marioYpos > Princess.p1y && Player.marioYpos < Princess.p1y+Princess.princessHeight) {
 				Princess1 = false;
@@ -69,6 +74,30 @@ public abstract class Creature extends Entity {
 		if (Princess6) {
 			if (Player.marioXpos > Princess.p6x && Player.marioXpos < Princess.p6x+Princess.princessWidth && Player.marioYpos > Princess.p6y && Player.marioYpos < Princess.p6y+Princess.princessHeight) {
 				Princess6 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess7) {
+			if (Player.marioXpos > Princess.p7x && Player.marioXpos < Princess.p7x+Princess.princessWidth && Player.marioYpos > Princess.p7y && Player.marioYpos < Princess.p7y+Princess.princessHeight) {
+				Princess7 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess8) {
+			if (Player.marioXpos > Princess.p8x && Player.marioXpos < Princess.p8x+Princess.princessWidth && Player.marioYpos > Princess.p8y && Player.marioYpos < Princess.p8y+Princess.princessHeight) {
+				Princess8 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess9) {
+			if (Player.marioXpos > Princess.p9x && Player.marioXpos < Princess.p9x+Princess.princessWidth && Player.marioYpos > Princess.p9y && Player.marioYpos < Princess.p9y+Princess.princessHeight) {
+				Princess9 = false;
+				GameState1.ScoreVal +=1;
+			}
+		}
+		if (Princess10) {
+			if (Player.marioXpos > Princess.p10x && Player.marioXpos < Princess.p10x+Princess.princessWidth && Player.marioYpos > Princess.p10y && Player.marioYpos < Princess.p10y+Princess.princessHeight) {
+				Princess10 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}

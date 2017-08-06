@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import java.util.logging.Level;
 
 import maro.Handler;
+import maro.entities.EntityManager;
 import maro.entities.creatures.Player;
 import maro.entities.statics.Princess;
 import maro.game.Game;
@@ -51,7 +52,7 @@ public class GameState1 extends State { //writing "extends State" allows us to w
 		g.setColor(Color.BLACK);
 		g.setFont(myFont1);
 		g.drawString("Score: ", Launcher.gameWidth - 300, 55); //Score String
-		g.drawString(ScoreVal+"/6", Launcher.gameWidth - 200, 55); //Score Value String
+		g.drawString(ScoreVal+"/"+EntityManager.princessCount, Launcher.gameWidth - 200, 55); //Score Value String
 		g.drawString("Health: ", 200, 55); //Health String
 		g.drawString(HealthVal+"", 300, 55); //Health Value String
 	}
