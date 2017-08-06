@@ -1,8 +1,12 @@
 package maro.entities.creatures;
 
+import java.awt.Color;
+
 import maro.Handler;
+import maro.display.Display;
 import maro.entities.Entity;
 import maro.entities.EntityManager;
+import maro.entities.statics.Ghost;
 import maro.entities.statics.Princess;
 import maro.game.Game;
 import maro.states.GameState1;
@@ -14,6 +18,7 @@ public abstract class Creature extends Entity {
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 64;
 	public static final int DEFAULT_CREATURE_HEIGHT = 64;
+	
 	
 	protected int health;
 	protected float speed;
@@ -38,68 +43,104 @@ public abstract class Creature extends Entity {
 		yMove = 0;
 	}
 	
+	/**
+	 * 
+	 */
+	/**
+	 * 
+	 */
+	/**
+	 * 
+	 */
 	public void move() {
 		
 		//checks if the player comes into contact with any of the princess objects
 		if (Princess1) {
-			if (Player.marioXpos > Princess.p1x && Player.marioXpos < Princess.p1x+Princess.princessWidth && Player.marioYpos > Princess.p1y && Player.marioYpos < Princess.p1y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p1x && Player.marioXcenter < Princess.p1x+Princess.princessWidth && Player.marioYcenter > Princess.p1y && Player.marioYcenter < Princess.p1y+Princess.princessHeight) {
 				Princess1 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess2) {
-			if (Player.marioXpos > Princess.p2x && Player.marioXpos < Princess.p2x+Princess.princessWidth && Player.marioYpos > Princess.p2y && Player.marioYpos < Princess.p2y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p2x && Player.marioXcenter < Princess.p2x+Princess.princessWidth && Player.marioYcenter > Princess.p2y && Player.marioYcenter < Princess.p2y+Princess.princessHeight) {
 				Princess2 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess3) {
-			if (Player.marioXpos > Princess.p3x && Player.marioXpos < Princess.p3x+Princess.princessWidth && Player.marioYpos > Princess.p3y && Player.marioYpos < Princess.p3y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p3x && Player.marioXcenter < Princess.p3x+Princess.princessWidth && Player.marioYcenter > Princess.p3y && Player.marioYcenter < Princess.p3y+Princess.princessHeight) {
 				Princess3 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess4) {
-			if (Player.marioXpos > Princess.p4x && Player.marioXpos < Princess.p4x+Princess.princessWidth && Player.marioYpos > Princess.p4y && Player.marioYpos < Princess.p4y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p4x && Player.marioXcenter < Princess.p4x+Princess.princessWidth && Player.marioYcenter > Princess.p4y && Player.marioYcenter < Princess.p4y+Princess.princessHeight) {
 				Princess4 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess5) {
-			if (Player.marioXpos > Princess.p5x && Player.marioXpos < Princess.p5x+Princess.princessWidth && Player.marioYpos > Princess.p5y && Player.marioYpos < Princess.p5y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p5x && Player.marioXcenter < Princess.p5x+Princess.princessWidth && Player.marioYcenter > Princess.p5y && Player.marioYcenter < Princess.p5y+Princess.princessHeight) {
 				Princess5 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess6) {
-			if (Player.marioXpos > Princess.p6x && Player.marioXpos < Princess.p6x+Princess.princessWidth && Player.marioYpos > Princess.p6y && Player.marioYpos < Princess.p6y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p6x && Player.marioXcenter < Princess.p6x+Princess.princessWidth && Player.marioYcenter > Princess.p6y && Player.marioYcenter < Princess.p6y+Princess.princessHeight) {
 				Princess6 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess7) {
-			if (Player.marioXpos > Princess.p7x && Player.marioXpos < Princess.p7x+Princess.princessWidth && Player.marioYpos > Princess.p7y && Player.marioYpos < Princess.p7y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p7x && Player.marioXcenter < Princess.p7x+Princess.princessWidth && Player.marioYcenter > Princess.p7y && Player.marioYcenter < Princess.p7y+Princess.princessHeight) {
 				Princess7 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess8) {
-			if (Player.marioXpos > Princess.p8x && Player.marioXpos < Princess.p8x+Princess.princessWidth && Player.marioYpos > Princess.p8y && Player.marioYpos < Princess.p8y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p8x && Player.marioXcenter < Princess.p8x+Princess.princessWidth && Player.marioYcenter > Princess.p8y && Player.marioYcenter < Princess.p8y+Princess.princessHeight) {
 				Princess8 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess9) {
-			if (Player.marioXpos > Princess.p9x && Player.marioXpos < Princess.p9x+Princess.princessWidth && Player.marioYpos > Princess.p9y && Player.marioYpos < Princess.p9y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p9x && Player.marioXcenter < Princess.p9x+Princess.princessWidth && Player.marioYcenter > Princess.p9y && Player.marioYcenter < Princess.p9y+Princess.princessHeight) {
 				Princess9 = false;
 				GameState1.ScoreVal +=1;
 			}
 		}
 		if (Princess10) {
-			if (Player.marioXpos > Princess.p10x && Player.marioXpos < Princess.p10x+Princess.princessWidth && Player.marioYpos > Princess.p10y && Player.marioYpos < Princess.p10y+Princess.princessHeight) {
+			if (Player.marioXcenter > Princess.p10x && Player.marioXcenter < Princess.p10x+Princess.princessWidth && Player.marioYcenter > Princess.p10y && Player.marioYcenter < Princess.p10y+Princess.princessHeight) {
 				Princess10 = false;
 				GameState1.ScoreVal +=1;
 			}
+		}
+		
+		//checks if players comes into contact with an enemy
+		
+		if (Player.marioXcenter > Ghost.p1x && Player.marioXcenter < Ghost.p1x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p1y && Player.marioYcenter < Ghost.p1y+Ghost.ghostHeight) {
+			System.exit(0); //kills the application
+		}
+		if (Player.marioXcenter > Ghost.p2x && Player.marioXcenter < Ghost.p2x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p2y && Player.marioYcenter < Ghost.p2y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p3x && Player.marioXcenter < Ghost.p3x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p3y && Player.marioYcenter < Ghost.p3y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p4x && Player.marioXcenter < Ghost.p4x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p4y && Player.marioYcenter < Ghost.p4y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p5x && Player.marioXcenter < Ghost.p5x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p5y && Player.marioYcenter < Ghost.p5y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p6x && Player.marioXcenter < Ghost.p6x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p6y && Player.marioYcenter < Ghost.p6y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p7x && Player.marioXcenter < Ghost.p7x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p7y && Player.marioYcenter < Ghost.p7y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
+		}
+		if (Player.marioXcenter > Ghost.p8x && Player.marioXcenter < Ghost.p8x+Ghost.ghostWidth && Player.marioYcenter > Ghost.p8y && Player.marioYcenter < Ghost.p8y+Ghost.ghostHeight) {
+			System.exit(0);//kills the application
 		}
 		
 		
@@ -181,9 +222,6 @@ public abstract class Creature extends Entity {
 		this.speed = speed;
 	}
 
-	class FireBall{
-		
-	}
 	
 	
 	

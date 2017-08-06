@@ -13,6 +13,8 @@ public class Player extends Creature {
 	public static int speed = 10;
 	public static float marioXpos;
 	public static float marioYpos;
+	public static int marioXcenter = (int)(Player.marioXpos + 20);
+	public static int marioYcenter = (int)(Player.marioYpos + 10);
 
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -81,6 +83,7 @@ public class Player extends Creature {
 		}
 		marioXpos = x;
 		marioYpos = y;
-		
+		marioXcenter = (int)(Player.marioXpos + 20);
+		marioYcenter = (int)(Player.marioYpos + 10);
 	}
 }
