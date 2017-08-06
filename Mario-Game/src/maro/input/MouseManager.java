@@ -78,7 +78,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
 		//Conditions for Quit button
 		if (mouseX > MainMenu.quitX && mouseX < MainMenu.quitX + MainMenu.buttonWidth) {
 			if (mouseY > MainMenu.quitY && mouseY < MainMenu.quitY + MainMenu.buttonHeight) {
-				Display.frame.dispose();
+				System.exit(0); //kills the application
 			}
 		}
 	}

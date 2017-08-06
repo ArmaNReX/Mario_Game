@@ -75,11 +75,6 @@ public class EntityManager {
 		}
 		//draws all the ghost(enemy) objects on the screen
 		g.drawImage(Assets.ghost, (int) (Ghost.p1x - handler.getGameCamera().getxOffset()), (int) (Ghost.p1y - handler.getGameCamera().getyOffset()), Ghost.ghostWidth, Ghost.ghostHeight, null);
-		g.setColor(Color.RED);
-		g.drawRect((int) (Ghost.p1x - handler.getGameCamera().getxOffset()), (int) (Ghost.p1y - handler.getGameCamera().getyOffset()), Ghost.ghostWidth, Ghost.ghostHeight);
-		g.drawRect((int) (Ghost.p2x - handler.getGameCamera().getxOffset()), (int) (Ghost.p2y - handler.getGameCamera().getyOffset()), Ghost.ghostWidth, Ghost.ghostHeight);
-
-				g.drawRect((int)(Player.marioXcenter- handler.getGameCamera().getxOffset()), (int)(Player.marioYcenter- handler.getGameCamera().getyOffset()), 50, 50);
 		g.drawRect((int) (Princess.p1x - handler.getGameCamera().getxOffset()), (int) (Princess.p1y - handler.getGameCamera().getyOffset()), Princess.princessWidth, Princess.princessHeight);
 		g.drawImage(Assets.ghost, (int) (Ghost.p2x - handler.getGameCamera().getxOffset()), (int) (Ghost.p2y - handler.getGameCamera().getyOffset()), Ghost.ghostWidth, Ghost.ghostHeight, null);
 		g.drawImage(Assets.ghost, (int) (Ghost.p3x - handler.getGameCamera().getxOffset()), (int) (Ghost.p3y - handler.getGameCamera().getyOffset()), Ghost.ghostWidth, Ghost.ghostHeight, null);
